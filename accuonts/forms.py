@@ -9,7 +9,7 @@ class UserCreateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('phon_number', 'email', 'password1')
+        fields = ('phone_number', 'email', 'password1')
 
     def clean_password2(self):  #پاک کردن پسوردو اعتبار سنجی پسورد
         cd = self.cleaned_data
@@ -29,4 +29,4 @@ class ChangePasswordForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('phon_number', 'email', 'password')
+        fields = ('phone_number', 'email', 'password')
