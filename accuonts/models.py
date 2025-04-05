@@ -23,3 +23,12 @@ class User(AbstractBaseUser):
 
     def is_staff(self):
         return self.is_admin
+
+
+class OtpCode(models.Model):  # is one time password
+    phone_number = models.CharField(max_length=11)
+    code = models.PositiveSmallIntegerField()
+    created = models.DateTimeField()
+
+    def __str__(self):
+        return f'{self.phone_number} - {self.code} - {self.created}'

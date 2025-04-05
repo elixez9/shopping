@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<style>
+    .form-control{
+        position: relative;
+        top: 20%;
+        left: 30%;
+        width: 40%;
+    }
+    body{
+        background-color: #f3ead9;
+    }
+</style>
+<body>
+       <h2 style="position: relative ;top: 10%;text-align: center"> Registration Form</h2>
+  <div class="form-control">
+      <form   action="" method="post">
+        {% csrf_token %}
+         {{ form.as_p }}
+         <input class="btn btn-primary" type="submit" value="send">
+     </form>
+  </div>
+</body>
+</html>
