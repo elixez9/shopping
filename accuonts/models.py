@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
-from .managers import BaseUserManager
+from .managers import UserManager
 
 
 class User(AbstractBaseUser):
@@ -10,7 +10,7 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)  #برای اینکه مشخص بشه کاربر وارد شده ادمین هست
     USERNAME_FIELD = 'email'  #اعتبار سنجی کابرها در وررد
     REQUIRED_FIELDS = ['phone_number']
-    objects = BaseUserManager()
+    objects = UserManager()
 
     def __str__(self):
         return self.email
