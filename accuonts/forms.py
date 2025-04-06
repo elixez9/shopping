@@ -42,3 +42,7 @@ class UserRegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('email', 'phone_number', 'password1', 'password2')
+
+
+class VerifyCodeForm(forms.Form):
+    code = forms.CharField()
