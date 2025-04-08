@@ -18,7 +18,7 @@ class User(AbstractBaseUser):
     def has_perm(self, perm, obj=None):
         return True
 
-    def has_module_perm(self, perm, obj=None):
+    def has_module_perms(self, perm, obj=None):
         return True
 
     def is_staff(self):
