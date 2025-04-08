@@ -20,13 +20,13 @@ class UserRegisterView(View):
             random_code = random.randint(1000, 9999)  #ساخت عدد تصادفی برای ورود با شماره تلفن
             send_top_code(form.cleaned_data['phone_number'], random_code)  #ارسال کد به شماره دتلفن
             OtpCode.objects.create(phone_number=form.cleaned_data['phone_number'], code=random_code)
-            request.session['user_register'] = {  ######ساخت session
+            request.session['user_register'] = {
                 'phone_number': form.cleaned_data['phone_number'],
                 'email': form.cleaned_data['email'],
-                'password': form.cleaned_data['password'],
-            }
+                'password1': form.cleaned_data['password1'],
+            }######ساخت session
             messages.success(request, 'send a code', 'success')
-            return redirect('accounts:verify_code')
+            return redirect('accuonts:verify')
         return redirect('home:home')
 
 
@@ -45,8 +45,11 @@ class VerifyCodeView(View):
         if form.is_valid():
             cd = form.cleaned_data['code']
             if cd['code'] == code_instance.code:  ##اگر کد وارد شده برابر بود با کد  داده شده##
-                User.objects.create_user( user_sessions['email'],user_sessions['password'],user_sessions['phone_number'])
+                User.objects.create_user(user_sessions['email'], user_sessions['password'],
+                                         user_sessions['phone_number'])
                 code_instance.delete()  #پاک کردن کد یکبار مصرف از دیتا بیس
-
-
-
+                messages.success(request, 'you registered', 'success')
+                return redirect('home:home')
+            else:
+                messages.error(request, 'wrong code', 'wrong code')
+                return redirect('accuonts:verify')
