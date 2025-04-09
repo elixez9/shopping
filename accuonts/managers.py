@@ -8,8 +8,7 @@ class UserManager(BaseUserManager):
         if not phone_number:
             raise ValueError('Users must have an phone number')
 
-        user = self.model(phone_number=phone_number,
-                          email=self.normalize_email(email))  #گرفتن اطلاعات از درون مدل یوزر و اعتبار سنجی انها
+        user = self.model(phone_number=phone_number,email=self.normalize_email(email))  #گرفتن اطلاعات از درون مدل یوزر و اعتبار سنجی انها
         user.set_password(password)  #گرفتن پسورد از مدل یوزر و hashکردن ان
         user.save(using=self._db)
         return user
