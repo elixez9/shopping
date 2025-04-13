@@ -3,22 +3,23 @@ from django.shortcuts import render, redirect
 from django.views import View
 from accuonts.forms import UserRegisterForm, VerifyCodeForm
 import random
-from utils import send_top_code
+from utils import send_otp_code
 from .models import OtpCode, User
 
 
 class UserRegisterView(View):
     form_class = UserRegisterForm
+    template_name = 'register.html'
 
     def get(self, request):
         form = self.form_class()
-        return render(request, "register.html", {"form": form})
+        return render(request, self.template_name, {"form": form})
 
     def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():  #اعتبار سنجی فرم
             random_code = random.randint(1000, 9999)  #ساخت عدد تصادفی برای ورود با شماره تلفن
-            send_top_code(form.cleaned_data['phone_number'], random_code)  #ارسال کد به شماره دتلفن
+            send_otp_code(form.cleaned_data['phone_number'], random_code)  #ارسال کد به شماره دتلفن
             OtpCode.objects.create(phone_number=form.cleaned_data['phone_number'], code=random_code)
             request.session['user_registering'] = {
                 'phone_number': form.cleaned_data['phone_number'],
@@ -27,7 +28,7 @@ class UserRegisterView(View):
             }
             ######ساخت session
             messages.success(request, 'send a code', 'success')
-            return redirect('accuonts:verify')
+            return render(request, self.template_name, {"form": form})
         return redirect('home:home')
 
 

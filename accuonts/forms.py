@@ -44,6 +44,23 @@ class UserRegisterForm(forms.ModelForm):
         model = User
         fields = ('email', 'phone_number', 'password1', 'password2')
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        user = User.objects.filter(email=email).exists()
+        if user:
+
+            raise forms.ValidationError("Email already exists")
+        return email
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data['phone_number']
+        user = User.objects.filter(phone_number=phone_number).exists()
+        if user:
+            raise forms.ValidationError("Phone number already exists")
+        return phone_number
+
+
+
+
 
 class VerifyCodeForm(forms.Form):
     code = forms.CharField()
