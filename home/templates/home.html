@@ -5,7 +5,20 @@
 <header>
  {% include 'nav/nav.html' %}
 </header>
+<style>
+    body {
+        background-image: url("static/image/home/BACK-.jpg") ;
+       background-size: cover;
+        background-position: center;
+        backdrop-filter: blur(4px);
+
+}
+    .hero-image {
+
+    }
+</style>
 <body>
+
      {% for product in  products %}
          <div class="card" style="width: 18rem ;position: relative;top:50px;">
            <img src="{{ product.image.url }}" class="card-img-top" alt="cvb">
