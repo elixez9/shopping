@@ -7,12 +7,11 @@
 </header>
 <body>
      {% for product in  products %}
-         <div class="card" style="width: 18rem;">
-           <img src="{{ product.image }}" class="card-img-top" alt="tr">
+         <div class="card" style="width: 18rem ;position: relative;top:50px;">
+           <img src="{{ product.image.url }}" class="card-img-top" alt="cvb">
            <div class="card-body">
-             <h5 class="card-title">{{ product.name}}</h5>
+             <a  href="{{  product.get_absolute_url }}" class="card-title">{{ product.name}}</a>
             <p class="card-text">{{ product.description }}</p>
-            <a href="/detail/<int:product_id>/" class="btn btn-primary">Go somewhere</a>
            </div>
          </div>
      {% endfor %}

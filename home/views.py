@@ -11,7 +11,7 @@ class HomeView(View):
 
 
 class DetailView(View):
-    def get(self, request, products_id):
-        product = get_object_or_404(Product, pk=pk)
-        return render(request, 'detail.html', {'product': product})
+    def get(self, request, slug):
+        product = get_object_or_404(Product, slug=slug)
+        return render(request, 'home/detail.html', {'product': product})
 
