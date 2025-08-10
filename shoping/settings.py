@@ -129,5 +129,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accuonts.User'
 
 # Arvan cloud storages
-DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
-AWS_S3_ACCESS_KEY_ID = ''
+DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+AWS_S3_ACCESS_KEY_ID = '3cb32bc5-9150-4c08-8b5f-cf5ebaf73ca0'
+AWS_S3_SECRET_ACCESS_KEY = 'bbcb513f413ae8d8f8a4f3ef116be00c058c70394d7b25e11c809dc6b64b89f4'
+AWS_S3_ENDPOINT_URL = 'https://shopingg.s3.ir-thr-at1.arvanstorage.ir'
+AWS_STORAGE_BUCKET_NAME = 'shopingg'
+AWS_S3_SERVICE_NAME = 's3'
+AWS_S3_FILE_OVERWRITE = False
