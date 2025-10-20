@@ -116,10 +116,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static_files")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "custom_static")]
-MEDIA_URL = 'https://shopingg.s3.ir-thr-at1.arvanstorage.ir/'
-MEDIA_ROOT = ''
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_files'
+]
+# media_file
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -129,10 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accuonts.User'
 
 # Arvan cloud storages
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Storage'
-AWS_S3_ACCESS_KEY_ID = '3cb32bc5-9150-4c08-8b5f-cf5ebaf73ca0'
-AWS_S3_SECRET_ACCESS_KEY = 'bbcb513f413ae8d8f8a4f3ef116be00c058c70394d7b25e11c809dc6b64b89f4'
-AWS_S3_ENDPOINT_URL = 'https://shopingg.s3.ir-thr-at1.arvanstorage.ir'
-AWS_STORAGE_BUCKET_NAME = 'shopingg'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_ACCESS_KEY_ID = '13QaKvGFa8yKiHnC'
+AWS_S3_SECRET_ACCESS_KEY = 'X0pZPsVd655mcLFL0rhXMhUQH7VVY4Eg'
+AWS_S3_ENDPOINT_URL = 'c692291.parspack.net'
+AWS_STORAGE_BUCKET_NAME = 'shopping'
 AWS_S3_SERVICE_NAME = 's3'
 AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None

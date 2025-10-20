@@ -1,6 +1,9 @@
 <head>
 
     <title>home</title></head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <header>
  {% include 'nav/nav.html' %}
@@ -11,14 +14,53 @@
        background-size: cover;
         background-position: center;
         backdrop-filter: blur(4px);
-
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
 }
     .hero-image {
 
     }
+.box1{
+      background-color: #f5f1e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+
+}
+
+.contact-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff3e0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+    .contact-icons i {
+      font-size: 2.5rem;
+      color: #d35400;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+}
+
+    .contact-icons i:hover {
+      transform: scale(1.2);
+      color: #e67e22;
+}
+
+    .contact-text {
+      font-size: 1rem;
+      color: #333;
+      margin-top: 5px;
+      text-align: center;
+}
 </style>
 <body>
-<h1 style="background-size: auto;background-color: floralwhite;color: black;">Products</h1>
+<h1 style="background-size: auto;background-color: #f4d9b1;color: #f38a00;text-align: center;position: relative;top: 70px">Products</h1>
   <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 50px;">
 
      {% for product in  products %}
@@ -30,5 +72,74 @@
            </div>
          </div>
      {% endfor %}
+  </div>
+   <div style="position: relative ; top: 80px;width: 40%;left:30%;height: 10%;">
+      <div  id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+          <div class="carousel-indicators">
+               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+
+
+          <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src="https://c692291.parspack.net/c692291//plp-grid-simple.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=13QaKvGFa8yKiHnC%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T153536Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Signature=6cd0ff7bee956697c2be5a9b4642695e6fc6d211f520242e63b5e2c7e2608ed2" class="d-block w-100" alt="عکس 1">
+                 </div>
+              <div class="carousel-item">
+                  <img src="https://c692291.parspack.net/c692291/aaaaa%20%281%29/4519155.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=13QaKvGFa8yKiHnC%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T154134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Signature=2dc631823dfd9160da46e7be1441eeccd92671e5e63900f24b094f49f699374f" class="d-block w-100" alt="عکس 2">
+              </div>
+              <div class="carousel-item">
+                      <img src="https://c692291.parspack.net/c692291/aaaaa%20%281%29/small_product-TLP-75952_2464d91e-988e-4127-a7d3-0d7d04f8115d.webp?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=13QaKvGFa8yKiHnC%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T154439Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Signature=d5233644b2d2c5c8b80d1221869424e71c28f82f61e49f82eaa2c459944e11c6" class="d-block w-100" alt="عکس 3">
+              </div>
+              <div class="carousel-item">
+                 <img src="https://c692291.parspack.net/c692291/aaaaa%20%281%29/POCO-M3-Pro-5G-xiaomi360-600x600.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=13QaKvGFa8yKiHnC%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T154214Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Signature=f6e220ea90b1fa657c640b788b34fdcadcca92efaf567d677345e035a60005dc" class="d-block w-100" alt="عکس 4">
+              </div>
+          </div>
+
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="visually-hidden">قبلی</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="visually-hidden">بعدی</span>
+          </button>
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+   </div>
+  <h1 style="background-color: #f4d9b1;color: #f38a00;position: relative;top: 100%; text-align: center ">Contact Us</h1>
+  <div style="position: relative;top: 100%;" class="box1">
+
+       <div style="position: relative;right: 25%;padding: 3%;width: 40%" class="contact-icons">
+
+            <div style="position: relative; right:6%;">
+                 <a href="https://instagram.com/yourusername" target="_blank">
+                    <i class="bi bi-instagram"></i>
+                 </a>
+                <div class="contact-text">@phone_i_shop</div>
+            </div>
+
+
+            <div style="position: relative; left: 1%;">
+                <a href="mailto:youremail@gmail.com">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
+                 <div class="contact-text">phoneishope1345@gmail.come</div>
+            </div>
+
+
+             <div style="position: relative; left: 1%;">
+                   <i class="bi bi-geo-alt-fill"></i>
+                   <div class="contact-text">Shiraz,Koyesadat,مجتمع باران</div>
+             </div>
+       </div>
+      <div>
+          <i class="fas fa-robot"  style="font-size: 20rem;  color: #ed5235;"></i>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </div>
 </body>
