@@ -15,3 +15,9 @@ class DetailView(View):
         product = get_object_or_404(Product, slug=slug)
         return render(request, 'home/detail.html', {'product': product})
 
+
+class BucketView(View):
+    template_name = 'bucket.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
